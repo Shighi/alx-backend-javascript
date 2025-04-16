@@ -1,14 +1,13 @@
 // Implementing block scoping to prevent variable overwriting
 export default function taskBlock(trueOrFalse) {
-  // Using let for block scoping instead of var
-  let task = false;
-  let task2 = true;
+  // Using const for block scoping since these variables won't be reassigned
+  const task = false;
+  const task2 = true;
 
   if (trueOrFalse) {
-    // These are now new variables in this block scope
-    // They don't affect the outer variables with the same names
-    let task = true;
-    let task2 = false;
+    // New variables in this block scope that don't affect outer variables
+    const task = true; // eslint-disable-line no-unused-vars
+    const task2 = false; // eslint-disable-line no-unused-vars
   }
 
   return [task, task2];
